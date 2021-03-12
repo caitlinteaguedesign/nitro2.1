@@ -62,6 +62,18 @@ $result = json_decode($response);
             </tr>
          </thead>
          <tbody class="table__body">
+            <tr class="table__row">
+               <td class="table__cell text_align-center">34</td>
+               <td class="table__cell">Barbara</td>
+               <td class="table__cell text_align-right">babes</td>
+               <td class="table__cell">babes@hotmail.com</td>
+            </tr>
+            <tr class="table__row">
+               <td class="table__cell text_align-center">12</td>
+               <td class="table__cell">Timmy</td>
+               <td class="table__cell text_align-right">timtim</td>
+               <td class="table__cell">tiny@gmail.com</td>
+            </tr>
             <?php 
             foreach ($result as $user) {
             ?>
@@ -75,7 +87,7 @@ $result = json_decode($response);
          </tbody>
       </table>
 
-      <p class="paragraph">Add class <b>.table-sortable</b> to the table, or target with custom class or id and apply javscsript manually. Follow the example below for the <b>.table-sortable__icon</b>, and add <b>.table-sortable__sorter-false</b> to columns that should not have sorting (if desired). Add a title arttibue to the th for additional labeling for mouse users.</p>
+      <p class="paragraph">Add class <b>.table-sortable</b> to the table, or target with custom class or id and apply javscsript manually. Follow the example below for the <b>.table-sortable__icon</b>, and add <b>.table-sortable__sorter-false</b> to columns that should not have sorting (if desired). Add a title attribute to the th for additional labeling for mouse users.</p>
 
 <pre class="code-block code-snippet"><code class="html">&lt;table class="table-sortable table"&gt;
    &lt;thead class="table__header"&gt;

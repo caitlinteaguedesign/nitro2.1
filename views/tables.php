@@ -347,7 +347,7 @@ include '../includes/header.php';
 				<div class="grid">
 					<div class="column_6">
 						
-						<p class="paragraph">Toggles shadows depending on the position of the scroll bar. Requires additional markup and accompanying javascript. See <a href="https://leerburg.com/nitro2.0/views/features/scrollable.php" class="link link_style-default">Scrollable</a> for more information.</p>
+						<p class="paragraph">Toggles shadows depending on the position of the scroll bar. Requires additional markup and accompanying javascript. See <a href="https:/views/features/scrollable.php" class="link link_style-default">Scrollable</a> for more information.</p>
 
 						<p class="paragraph">As with the basic version, begin by splitting the table into two, one for the table head and one for the table content. Column heads and their correspond table cells should have matching <b>.column-width-#</b> definitions.</p>
 

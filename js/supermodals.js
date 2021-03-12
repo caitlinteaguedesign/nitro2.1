@@ -1,21 +1,3 @@
-<?php	
-	/* 
-	*	Supermodals.php (a.k.a. "Project Falcon") - EPIC version
-	*	jQuery Modal code, domesticated by Bobbie on 8/11/15
-	*	Emerged victorious (and stylish) from Epic Battle on 6/16/17, alongside party members Bobbie and Caitlin
-	*	Became graceful, acquired Cheshire cat fade abilities and sneak abilities on 6/28/17
-	*	Allows modals to be opened (via ajax or hidden div) or closed with a single line of code
-	*	This is basically a rewrite of some basic jQuery modal functions included in the header on every page
-	*	Why?  Because Bobbie was too lazy to deal with 200 lines of conflicting code for each jQuery modal on random pages
-	*
-	*	Required files:
-	*	Whatever jQuery we use on all the pages
-	*
-	*  Nitro toolkit version: grabbed from leerburg.com/includes/epicmodals.php on 12/21/2017
-	*/		
-	
-?>
-<script>
 var supermodal = (function(){
    var 
    method = {},
@@ -31,7 +13,7 @@ var supermodal = (function(){
    $overlay = $('<div id="supermodal-overlay" class="supermodal-overlay"></div>');
    $modal = $('<div id="supermodal-modal" class="supermodal-modal">');
    $content = $('<div id="supermodal-content" class="supermodal-content"></div>');
-   $close = $('<button type="button" id="supermodal-close" class="supermodal-close"><svg class="icon icon_fill" role="img" aria-label="press to close modal"><use href="<?php echo $SVG_PATH; ?>#icon-exMark"></use></svg></button>');
+   $close = $('<button type="button" id="supermodal-close" class="supermodal-close"><svg class="icon icon_fill" role="img" aria-label="press to close modal"><use href="/img/core-icons.svg#icon-exMark"></use></svg></button>');
 
    $modal.hide();
    $overlay.hide();
@@ -208,5 +190,3 @@ var supermodal = (function(){
    return method;
    
 }());
-
-</script>

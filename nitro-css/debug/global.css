@@ -293,7 +293,7 @@ a {
   font-size: 1em;
 }
 .input--calendar-icon {
-  background: url(//leerburg.com/nitro2.0/img/ui-icons/calendar-inputBG.svg), linear-gradient(to bottom, #ededed 0%, #ffffff 25%);
+  background: url(/img/ui-icons/calendar-inputBG.svg), linear-gradient(to bottom, #ededed 0%, #ffffff 25%);
   background-position: right center;
   background-repeat: no-repeat;
   padding-right: 2em;
@@ -519,7 +519,7 @@ a {
 }
 
 html, body {
-  background: #eaeaea url(//leerburg.com/nitro2.0/img/circles-light.png);
+  background: #eaeaea url(/img/circles-light.png);
   font-family: "Raleway", sans-serif;
   color: #011d15;
   height: 100vh;
@@ -2945,5 +2945,5 @@ header .imageDemo {
   position: relative;
   width: 100%;
   height: 100px;
-  background: url(//leerburg.com/nitro2.0/img/img02.jpg) center center/cover no-repeat;
+  background: url(/img/img02.jpg) center center/cover no-repeat;
 }

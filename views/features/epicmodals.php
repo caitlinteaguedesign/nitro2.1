@@ -7,9 +7,7 @@
 	<main class="main global-padding">
 		<h1 class="heading-1">Epicmodals</h1>
 
-		<p class="paragraph">Modals is included with php, so find its file is located in <strong>includes/functions/</strong>. Content for modal examples located in <strong>includes/modals/</strong>. Script for calling epicmodals located at the bottom of this file.</p>
-
-		<p class="paragraph">See Epicmodal file for more information on options.</p>
+		<p class="paragraph">Modals is included with php, so find its file is located in <strong>js/supermodals.js</strong>. Content for modal examples located in <strong>includes/modals/</strong>. Script for calling supermodals located at the bottom of this file.</p>
 
 		<div class="bottom-spacing-1">
 			<button type="button" class="button button_color-default" onclick="openDefault();">

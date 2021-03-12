@@ -1,4 +1,4 @@
-<?php $VIEWS_PATH = "//leerburg.com/nitro2.0/views/" ?>
+<?php $VIEWS_PATH = "/views/" ?>
 
 <nav class="sidebar" aria-label="Navigation">
 	<div class="accordion accordion_style-basic accordion_color-theme">
