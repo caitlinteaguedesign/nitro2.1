@@ -1,0 +1,25 @@
+@import '../theme/main';
+@import '../../framework/mixins/bootstrap';
+
+#basic-tabs-test {
+   @media (max-width: 750px ) {
+      @include basic-tabs--mobile();
+   }
+}
+
+#folder-tabs-test1 {
+   @media (max-width: 900px ) {
+      @include folder-tabs--mobile();
+   }
+}
+#folder-tabs-test2 {
+   @media (max-width: 700px ) {
+      @include folder-tabs--mobile();
+   }
+}
+
+#joined-tabs-test {
+   @media (max-width: 850px) {
+      @include joined-tabs--mobile(2px solid lighten($link-color, 10%));
+   }
+}

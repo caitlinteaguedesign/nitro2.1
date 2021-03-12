@@ -1,0 +1,18 @@
+.supermodal_theme-nitro {
+	padding: $gutters;
+	border-radius: $gutters / 2;
+	background-color: #c4ddcc;
+	max-width: $gutters * 30;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+	.supermodal-close {
+		top: 0.4em;
+		right: 0.4em;
+	
+		.icon {
+			color: #4f665e;	
+			height: 1.125em;
+			width: 1.125em;	
+		}
+	}
+}

@@ -1,0 +1,51 @@
+.scrollable {
+
+	position: relative;
+
+	&__shadow {
+		position: absolute;
+		
+		height: rhythm(1);
+		width: 0; // default to 0 in case js fails
+		
+		opacity: 0;
+		
+
+		&--visible {
+			opacity: 1;
+			transition: opacity 0.4s ease-out;
+		}
+
+		&-top {
+			top: 0;
+			background: linear-gradient(to bottom, rgba(100,100,100,1), rgba(100,100,100,0));
+		}
+
+		&-bottom {
+			bottom: 0;
+			background: linear-gradient(to top, rgba(100,100,100,1), rgba(100,100,100,0));
+		}
+	}
+
+	$i: 5;
+
+	@while $i <= 20 {
+		&__container-#{$i} {
+			overflow: auto;
+			max-height: rhythm($i);		
+		}
+		$i: $i + 1;
+	}
+}
+
+
+// backwards compatible to previous version
+$i: 100;
+
+@while $i <= 400 {
+	.scrollable-#{$i} {
+		overflow: auto;
+		max-height: $i * 1px;		
+	}
+	$i: $i +50;
+}

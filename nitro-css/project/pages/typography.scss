@@ -1,0 +1,18 @@
+@import '../theme/main';
+@import '../../framework/mixins/bootstrap';
+
+.page-typo {
+
+   &__2up{
+      @include auto-grid(200px);
+   }
+
+   &__3up{
+      @include auto-grid(1fr);
+
+      @media (min-width: 780px) {
+         @include auto-grid(300px);
+      }
+   }
+
+}

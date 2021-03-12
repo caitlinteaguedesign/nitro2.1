@@ -1,0 +1,75 @@
+.progress {
+	@include progress-reset();
+
+	// striped & gradient styles 
+	$progress-gradient-colors: 
+		"gray" #eaeaea #aaaaaa,
+		"darkgray" #999999 #333333,
+		"cool" skyblue purple,
+		"warm" yellow red,
+		"mint" white green,
+		"candycane" white red
+	;
+	@each $label, $color1, $color2 in $progress-gradient-colors{
+		&_color-gradient-#{$label} {
+			@include progress-set-gradient($color1, $color2);
+		}
+		&_color-striped-gradient-#{$label} {
+			@include progress-set-striped($color1, $color2);
+		}
+	}
+
+	// solid colors 
+	$default: lighten($default-text-color, 15%);
+
+	@if lightness($default-text-color) > 50 {
+		$default: darken($default-text-color, 15%);
+	}
+
+	$progress-colors: 
+		"red" #f74040,
+		"orange" #f77340,
+		"yellow" #f7c740,
+		"green" #3da921,
+		"blue" #4089f7,
+		"purple" #a050dc,
+		"positive" #90D127,
+		"negative" #DB4429,
+		"neutral" #aaaaaa,
+		"theme" $default
+	;
+	@each $label, $color in $progress-colors{
+		&_color-#{$label} {
+			@include progress-color-set($color);
+		}
+	}
+}
+
+// non linear progress bar
+.nonlinear-progress{
+	display: flex;
+	flex-direction: row;
+
+	.progress {
+		border-left: 1px dashed #999999;
+		
+		&:first-child {
+			transform: scaleX(-1);
+			filter: FlipH;
+			-ms-filter: "FlipH";
+		}
+
+		&[value]::-webkit-progress-bar {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+		&[value]::-moz-progress-bar {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+		&[value]::-webkit-progress-value {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+}

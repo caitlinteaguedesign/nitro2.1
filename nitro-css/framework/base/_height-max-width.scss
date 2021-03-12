@@ -1,0 +1,19 @@
+// max widths (for forms, other elements)
+$i: 100; 
+
+@while $i <= 800 {
+	.max-width-#{$i} {
+		max-width: $i * 1px;
+	}
+	$i: $i +25;
+}
+
+// set heights
+$i: 100; 
+
+@while $i <= 800 {
+	.height-#{$i} {
+		height: $i * 1px;
+	}
+	$i: $i +25;
+}

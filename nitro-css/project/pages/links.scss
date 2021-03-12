@@ -1,0 +1,12 @@
+@import '../theme/main';
+@import '../../framework/mixins/bootstrap';
+
+.bg-color{
+	list-style: none;
+	line-height: 1.5em;
+	background-color: rgba(150,150,150,.25);
+}
+.bg-color-pad{
+	background-color: rgba(150,150,150,.25);
+	padding: 1em;
+}

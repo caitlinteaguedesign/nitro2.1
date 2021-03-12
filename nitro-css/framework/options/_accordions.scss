@@ -1,0 +1,85 @@
+.accordion {
+	list-style: none;
+
+	&__label {
+		cursor: pointer;
+	}
+
+	&__content {
+		display: none;
+
+		&--visible {
+			display: block;
+		}
+	}
+
+	// -----------------------------------
+	// styles
+	&_style-basic {
+		border-bottom: 1px solid transparent;
+
+		.accordion__label {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			padding: $gutters/2;
+
+			border: 1px solid;
+			border-bottom: none;
+		}
+
+		.accordion__content {
+			padding: $gutters/2;
+			border-left: 1px solid;
+			border-right: 1px solid;
+			border-top: 1px solid;
+		}
+
+	}
+
+	// -----------------------------------
+	// colors (basic style)
+	$accordion-colors: 
+		"light" #cccccc #d1d1d1 #333333 #333333 #efefef #f7f7f7 #e1e1e1,
+		"dark" #121212 #979797 #ffffff #333333 #333333 #464646 #2c2c2c,
+		"theme" darken($link-color,8%) desaturate(lighten($link-color,30%),60%) desaturate(lighten($link-color,50%),30%) #333333 $link-color lighten($link-color,3%) darken($link-color,3%)
+	;
+	@each $label, $c1, $c2, $c3, $c4, $bc1, $g1, $g2
+	in $accordion-colors
+	{
+		&_color-#{$label} 
+		{
+			$label-border: $c1;
+			$content-border: $c2;
+			$label-color: $c3;
+			$content-color: $c4;
+
+			border-color: $label-border;
+
+			.accordion__label {
+				background: $bc1; // default
+				background: linear-gradient(to bottom, $g1, $g2);
+				border-color: $label-border;
+				color: $label-color;
+			}
+
+			.accordion__label-icon {
+				@if lightness($label-color) > 50{
+					color: darken($label-color, 20%);
+				}
+				@else {
+					color: lighten($label-color, 20%);
+				}
+			}
+
+			.accordion__content {
+				background-color: #ffffff;
+				border-left-color: $content-border;
+				border-right-color: $content-border;
+				border-top-color: $label-border;
+				color: $content-color;
+			}
+		}		
+	}
+}

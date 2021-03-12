@@ -1,0 +1,27 @@
+// vertical rhythm
+@function rhythm($number) {
+   $result: 1; 
+   $result: #{($standard-text-height / 16px ) * $number + 'rem'};
+   @return $result;
+}
+@mixin vertical-rhythm-bottom ($number) {
+   margin-bottom: rhythm($number);
+}
+
+@mixin vertical-rhythm-top ($number) {
+   margin-top: rhythm($number);
+}
+
+// auto grids
+@mixin auto-grid-cols($cols) {
+   display: grid;
+   grid-template-columns: repeat($cols, 1fr);
+   grid-gap: $gutters*2;
+   gap: $gutters*2;
+}
+@mixin auto-grid($min) {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+   grid-gap: $gutters*2;
+   gap: $gutters*2;
+}

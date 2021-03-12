@@ -1,0 +1,52 @@
+// get google fonts
+@include google-font($google-fonts);
+
+// some text modifiers
+.text {
+
+	&_break-word{
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+		word-break: break-word;
+	}
+
+	&_truncate {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&_ellipses {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		&:after{
+			content: ".............................................................................................................................................................................................................."
+		}
+	}
+
+	&_align-right {
+		text-align: right;
+	}
+
+	&_align-center {
+		text-align: center;
+	}
+
+	&_bold {
+		font-weight: 700;
+	}
+
+	&_italic {
+		font-style: italic;
+	}
+
+	&_strike {
+		text-decoration: line-through;
+	}
+	&_uppercase {
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+}

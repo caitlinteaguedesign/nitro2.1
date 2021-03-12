@@ -1,0 +1,38 @@
+.alert {
+	padding: rhythm(1);
+	border: 1px solid;
+	border-radius: .25em;
+
+	&__heading {
+		@include vertical-rhythm-bottom(1);
+		text-transform: uppercase;
+		letter-spacing: .1em;
+		line-height: 1.3em;
+		font-weight: 700;
+		border-bottom-width: .2em;
+		border-bottom-style: solid;
+	}
+
+
+	$alert-colors: 
+		"warning" #ff8d8d,
+		"caution" #ffe9a9,
+		"info" #dae7f1,
+		"success" #d8f3d1,
+		"light" #eaeaea,
+		"dark" #999999
+	;
+
+	@each $label, $color in $alert-colors{
+		&_#{$label} {
+			background-color: $color;
+			border-color: desaturate(darken($color,10%), 10%);
+			color: desaturate(darken($color,60%),10%);
+
+			.alert__heading {
+				color: desaturate(darken($color,50%),30%);
+				border-color: desaturate(darken($color,40%),30%);
+			}
+		}
+	}
+}

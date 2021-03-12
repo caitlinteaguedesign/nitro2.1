@@ -1,0 +1,42 @@
+@mixin folder-tab($tab-color, $tab-hover) 
+{
+	color: darken($tab-color, 35%);
+	background: $tab-color;
+
+	&:hover{
+		background: $tab-hover;
+
+		&:after{
+			border-bottom-color: $tab-hover;
+		}
+	}
+
+	&:after{
+		border-bottom-color: $tab-color;
+	}
+}
+
+@mixin folder-tab-gradient($tab-color, $tab-hover) 
+{
+	color: darken($tab-color, 35%);
+
+	$shade: darken($tab-color, 25%);
+
+	background: $tab-color;
+	background: linear-gradient(45deg, $shade, $tab-color 20%, $tab-color);
+
+	&:hover{
+		$shade: darken($tab-hover, 25%);
+
+		background: $tab-hover;
+		background: linear-gradient(45deg, $shade, $tab-hover 20%, $tab-hover);
+
+		&:after{
+			border-bottom-color: $tab-hover;
+		}
+	}
+
+	&:after{
+		border-bottom-color: $tab-color;
+	}
+}

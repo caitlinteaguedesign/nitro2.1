@@ -1,0 +1,14 @@
+.button {
+	&_color-theme {
+		border: 1px solid #679109;
+		color: #315409;
+
+		background: #d2ff52;
+		background: linear-gradient(to bottom, #d2ff52, #91e842);
+
+		&:hover {
+			background: #85cc43;
+			background: linear-gradient(to bottom, #85cc43, #a0eb59);
+		}
+	}
+}

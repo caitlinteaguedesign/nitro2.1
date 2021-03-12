@@ -1,0 +1,87 @@
+$progress-value-shadow: 0 -.1em .5em 0 rgba(0,0,0,.5) inset;
+
+@mixin progress-reset() {
+
+	width: 100%;
+	height: 1.25em;
+
+	&[value] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	@-moz-document url-prefix() {
+		border: none;
+		border-radius: .75em;
+		background-color: #eaeaea;
+		box-shadow: 0 .1em .5em rgba(0, 0, 0, 0.25) inset;
+   }
+
+	&[value]::-webkit-progress-bar {
+		background-color: #eaeaea;
+		border-radius: .75em;
+		box-shadow: 0 .1em .5em rgba(0, 0, 0, 0.25) inset;
+	}
+
+	&[value]::-moz-progress-bar {
+		border-radius: .75em;
+		box-shadow: inset 0 -.1em .5em 0 rgba(0,0,0,.5);
+	}
+
+	&[value]::-webkit-progress-value {
+		border-radius: .75em;
+		box-shadow: inset 0 -.1em .5em 0 rgba(0,0,0,.5);
+	}
+}
+
+
+@mixin progress-color-set($color){
+	&::-moz-progress-bar {
+		background-color: $color;
+		// box-shadow: inset 0 -.1em .5em 0 rgba(0,0,0,.5);
+	}
+
+	&::-webkit-progress-value {
+		background-color: $color;
+		// box-shadow: inset 0 -.1em .5em 0 rgba(0,0,0,.5);
+	}
+	
+}
+
+@mixin progress-set-gradient($color1, $color2){
+	&::-moz-progress-bar {
+		background-image: -moz-linear-gradient(left, $color1, $color2);
+		// /box-shadow: $progress-value-shadow;
+	}
+	&::-webkit-progress-value {
+		background-image: -webkit-linear-gradient(left, $color1, $color2);
+		// /box-shadow: $progress-value-shadow;
+	}
+	
+}
+
+@mixin progress-set-striped($color1, $color2){
+
+	$striping: rgba(255, 255, 255, 0.15);
+
+	@if lightness(mix($color1, $color2)) > 50 {
+		$striping: rgba(0, 0, 0, 0.15);
+	}
+
+	&::-moz-progress-bar {
+		background-size: 2.5em 1.25em, 100% 100%, 100% 100%;
+		background-image:
+		-moz-linear-gradient(135deg, transparent 33%, $striping 33%, $striping 66%, transparent 66% ),
+		-moz-linear-gradient(left, $color1, $color2);
+		// /box-shadow: $progress-value-shadow;
+	}
+	&::-webkit-progress-value {
+		background-size: 2.5em 1.25em, 100% 100%, 100% 100%;
+		background-image:
+		-webkit-linear-gradient(-45deg, transparent 33%, $striping 33%, $striping 66%, transparent 66%),
+		-webkit-linear-gradient(left, $color1 , $color2 );	
+		// /box-shadow: $progress-value-shadow;
+	}
+	
+}

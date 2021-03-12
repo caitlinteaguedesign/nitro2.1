@@ -1,0 +1,14 @@
+.code-block {
+	border: .25em solid #141414;
+	border-left: 1em solid #141414;
+	width: 100%;
+	overflow: auto;
+
+	tab-size: 3;
+	-moz-tab-size: 3;
+	white-space: pre-wrap; 
+
+	font-family: $font-mono;
+	font-size: 1em;
+	line-height: 1.5em;
+}

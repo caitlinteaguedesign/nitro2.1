@@ -1,0 +1,83 @@
+@mixin fancyArrows(
+	$size: 10px, 
+	$side: "left", // right, top, bottom
+	$placement: center, // start, center, end, or any number in px, em, or %
+	$color: #eaeaea,
+	$border: 0, // optional, unit type must match unit in $size
+	$border-color: none // optional
+) {
+		
+	position: absolute;
+
+	$opposite: "";
+	$orientation: "";
+
+	@if $side == left {
+		$opposite: "right";
+		$orientation: "top";
+	} @else if $side == right {
+		$opposite: "left";
+		$orientation: "top";
+	} @else if $side == top {
+		$opposite: "bottom";
+		$orientation: "left";
+	} @else if $side == bottom {
+		$opposite: "top";
+		$orientation: "left";
+	} @else {
+		@error "unknown side #{$side}.";
+	}
+
+	@if $orientation == top {
+		width: $size; // x
+		height: $size * 2; // x * 2
+	} @else {
+		width: $size * 2; // x * 2
+		height: $size; // x
+	}
+
+	@if type-of($placement) == number {
+		#{$orientation}: $placement;
+	} @else {
+		@if $placement == center {
+			#{$orientation}: calc(50% - #{$size});
+		}
+		@else if $placement == start {
+			#{$orientation}: 0;
+		}
+		@else if $placement == end {
+			#{$orientation}: calc(100% - #{$size}* 2);
+		} @else {
+			@error "unknown placement #{$placement}.";
+		}
+	}
+
+	#{$side}: $size * -1; // -x, same direction
+
+	&::after,
+	&::before {
+	content: "";
+	position: absolute;
+		#{$opposite}: 0; // opposite direction
+	}
+	&::before {
+		border: $size solid transparent; // x
+		border-#{$opposite}: $size solid $border-color; // x, border color opposite direction
+	}
+
+	$totalBorder: $border * 2;
+	$innerTriangle: $size - $totalBorder;
+
+	&::after {
+		@if $orientation == top {
+		top: 50%;
+		transform: translateY(-50%);
+		} @else {
+		left: 50%;
+		transform: translateX(-50%);
+		}
+
+		border: $innerTriangle solid transparent; // x
+		border-#{$opposite}: $innerTriangle solid $color; // x - border thickness * 2, inner color
+	}
+}

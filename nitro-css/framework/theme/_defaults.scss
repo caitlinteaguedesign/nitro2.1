@@ -1,0 +1,47 @@
+// =========================================
+// theme template (with default values)
+
+// paths
+$IMG_PATH: "//leerburg.com/nitro2.0/img/" !default;
+
+// set fonts
+$google-fonts: none !default;
+
+$font-headings: 'Arial', sans-serif !default;
+$font-body: 'Gerogia', serif !default;
+$font-mono: 'Courier', monospace !default;
+
+// text colors
+$default-text-color: #333333 !default; 
+$link-color: #0b4999 !default;
+
+// background and layout
+$body-background: #cccccc !default;
+$content-background: #ffffff !default;
+
+$max-body-width: 90em !default;
+$total-columns: 12 !default;
+
+// typically 1em when site is based on 1em = 16px
+$standard-text-size: 1em !default;
+
+// height of body font when font-size = 16px
+// value used to properly align icons, and for vertical rhythm
+$standard-text-height: 19px !default;
+$gutters: $standard-text-height / 16px * 1em !default;
+
+// table colors
+$table-caption-bg: #666666 !default;
+$table-caption-color: #ffffff !default;
+
+$table-header-bg: #eaeaea !default; 
+$table-header-color: #666666 !default; 
+
+$table-row-even: #cccccc !default; 
+$table-row-odd: #ffffff !default; 
+
+$table-dull: #ccc !default;
+$table-emphasize: #333 !default;
+
+$table-heading-border: 1px solid #bbb !default; 
+$table-cell-border: 1px solid #bbb !default; 

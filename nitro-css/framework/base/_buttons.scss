@@ -1,0 +1,129 @@
+// typical button
+.button {
+	font-family: $font-body;
+	font-size: $standard-text-size;
+	padding: .25em .4em;
+	min-height: 2em;
+	cursor: pointer;
+
+	&_rounded {
+		border-radius: .5em;
+	}
+	
+	&_icon-only {
+		padding: .5em;
+	}
+
+	&_color-default {
+		border:1px solid #aaaaaa;
+		color: #515151;
+
+		background: #ffffff;
+		background: linear-gradient(to bottom, #ffffff, #eaeaea, #cccccc);
+
+		&:hover {
+			background: #cccccc;
+			background: linear-gradient(to bottom, #cccccc, #eaeaea, #ffffff);
+		}
+
+		&--muted {
+			cursor: default;
+			border:1px solid #cacaca;
+			color: #9c9c9c;
+
+			background: #eaeaea;
+			background: linear-gradient(to bottom, #eaeaea, #d2d2d2);
+		}
+	}
+}
+
+// file selecting / file input type
+.file-select {
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr auto;
+	grid-gap: $gutters;
+	gap: $gutters;
+
+	&__input {
+		display: none;
+	}
+
+	&__button {
+		font-family: $font-body;
+		font-size: $standard-text-size;
+		padding: .25em .4em;
+		min-height: 2em;
+		cursor: pointer;
+		border-radius: .5em;
+	}
+
+	&__clear {
+		display: none;
+		padding: .125em;
+		border-radius: .25em;
+		border: 1px solid transparent;
+	}
+
+	&__label {
+		font-family: $font-body;
+		font-size: $standard-text-size;
+		line-height: 1.5em;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	&_color-default {
+
+		.file-select__button {
+			border:1px solid #aaaaaa;
+			color: #515151;
+
+			background: #ffffff;
+			background: linear-gradient(to bottom, #ffffff, #eaeaea, #cccccc);
+
+			&:hover {
+				background: #cccccc;
+				background: linear-gradient(to bottom, #cccccc, #eaeaea, #ffffff);
+			}
+		}
+
+		.file-select__clear {
+			background-color: #666666;
+			border-color: #474747;
+
+			.icon {
+				color: #ffffff;
+			}
+		}
+		
+		&--muted {
+			.file-select__button {
+				cursor: default;
+				border:1px solid #cacaca;
+				color: #9c9c9c;
+
+				background: #eaeaea;
+				background: linear-gradient(to bottom, #eaeaea, #d2d2d2);
+			}
+
+			.file-select__clear {
+				background-color: #d9d9d9;
+				border-color: #c6c6c6;
+	
+				.icon {
+					color: #acacac;
+				}
+			}
+		}
+	}
+}
+// button layouts
+.button-group {
+	display: flex;
+	gap: .5em;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}

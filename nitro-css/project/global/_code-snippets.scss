@@ -1,0 +1,7 @@
+.code-snippet {
+   align-self: start;
+   
+   &:not(:last-child) {
+      @include vertical-rhythm-bottom(1);
+   }
+}

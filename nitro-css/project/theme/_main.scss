@@ -1,0 +1,62 @@
+// ====================================
+// paths
+$IMG_PATH: "//leerburg.com/nitro2.0/img/";
+
+// ====================================
+// colors
+$default-text-color: #011d15; 
+$link-color: #009669;
+
+// ====================================
+// background and layout
+
+$body-background: #eaeaea url(#{$IMG_PATH} + 'circles-light.png');
+$content-background: #ffffff;
+
+$max-body-width: 90em;
+$total-columns: 12;
+
+// ====================================
+// typography
+
+// get google fonts
+$google-fonts: "Open+Sans:400,700|Barlow+Semi+Condensed:400,700|Raleway:400,400i,700,700i|Ubuntu+Mono:400,400i";
+
+// set fonts
+$font-headings: 'Barlow Semi Condensed', sans-serif;
+$font-body: 'Raleway', sans-serif;
+$font-mono: 'Ubuntu Mono', monospace;
+
+// font settings
+
+// requires modual scale 3rd party library
+$modularscale: (
+  base: 1em,
+  ratio: 1.25
+);
+
+// typically 1em when site is based on 1em = 16px
+$standard-text-size: 1em;
+
+// height of body font when font-size = 16px
+// value used to properly align icons, and for vertical rhythm
+$standard-text-height: 19px;
+$gutters: $standard-text-height / 16px * 1em;
+
+// ===============================
+// table colors
+
+$table-caption-bg: #9ccccc;
+$table-caption-color: #0c3939;
+
+$table-header-bg: #1cb084; 
+$table-header-color: #003122; 
+
+$table-row-even: #5c8282; 
+$table-row-odd: #dcecec; 
+
+$table-dull: #d0dddd;
+$table-emphasize: #40826e;
+
+$table-heading-border: 2px solid #0c8863;  
+$table-cell-border: 2px solid #a6c8c8;  

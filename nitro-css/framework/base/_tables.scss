@@ -1,0 +1,458 @@
+.table {
+	@include table-reset();
+	
+	table-layout: fixed;
+	width: 100%;
+	text-align: left; // default
+	align-self: start;
+	
+	&__caption {
+		padding: $gutters/2 $gutters;
+		font-size: 1em;
+		line-height: 1.2em;
+	}
+
+	&__heading {
+		padding: $gutters/2 $gutters/2;
+		vertical-align: middle;
+		font-size: 1em;
+		line-height: 1em;
+	}
+
+	&__cell {
+		padding: $gutters/2 $gutters/2;
+		vertical-align: middle;
+		font-size: 1em;
+		line-height: 1.4em;
+	}
+
+	// ================================================
+	// default theme
+
+	&_theme-default {
+
+		.table__caption {
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: .1em;
+			background-color: #666;
+			border-left: 1px solid #666;
+			border-right: 1px solid #666;
+			border-top: 1px solid #666;
+			color: #eaeaea;
+		}
+
+		.table__header {
+			font-weight: 700;
+			background-color: #eaeaea;
+			color: #666666;
+
+			&:first-child {
+				.table__heading {
+					border-top: 1px solid #aaa;
+				}
+			}
+		}
+
+		.table__heading {
+			font-weight: 700;
+			border-left: 1px solid #aaa;
+			border-right: 1px solid #aaa;
+			border-bottom: 1px solid #aaa;
+		}
+
+		.table__row {
+
+			&--dull {
+				background-color: #cccccc !important;
+				color: #666666 !important;
+			}
+	
+			&--emphasize {
+				@if lightness($default-text-color) > 50 {
+					color: #000000 !important;
+				}
+				@else {
+					color: #ffffff !important;
+				}
+				background-color: $default-text-color !important;
+			}
+		}
+
+		.table__cell {
+			border: 1px solid #ccc;
+
+			&--dull {
+				background-color: #cccccc !important;
+				color: #666666 !important;
+			}
+
+			&--emphasize {
+				@if lightness($default-text-color) > 50 {
+					color: #000000 !important;
+				}
+				@else {
+					color: #ffffff !important;
+				}
+				background-color: $default-text-color !important;
+			}
+		}
+
+		// mobile
+		.mobile-table__cell-label {
+			text-transform: uppercase;
+			letter-spacing: .05em;
+			background-color: #eaeaea;
+			color: #666666;
+			font-size: .9em;
+			font-weight: 700;
+		}
+	}
+
+	&_theme-generated {
+
+		.table__header {
+			background: $table-header-bg;
+			color: $table-header-color;
+		}
+
+		.table__caption {
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: .1em;
+			background: $table-caption-bg;
+			color: $table-caption-color;
+		}
+
+		.table__heading {
+			font-weight: 700;
+		}
+
+		.table__cell {
+
+			&--dull {
+				background-color: $table-dull !important;
+
+				@if lightness($table-dull) > 50 {
+					color: darken($table-dull, 45%) !important;
+				}
+				@else {
+					color: lighten($table-dull, 45%) !important;
+				}
+			}
+
+			&--emphasize {
+				background-color: $table-emphasize !important;
+
+				@if lightness($table-emphasize) > 50 {
+					color: darken($table-emphasize, 80%) !important;
+				}
+				@else {
+					color: lighten($table-emphasize, 80%) !important;
+				}
+			}
+		}
+
+		&--alternate {
+
+			.table__row {
+
+				&:nth-child(odd) {
+					@if lightness($table-row-odd) > 50 {
+						color: darken($table-row-odd, 80%);
+					}
+					@else {
+						color: lighten($table-row-odd, 80%);
+					}
+					background: $table-row-odd;
+				}
+
+				&:nth-child(even) {
+					@if lightness($table-row-even) > 50 {
+						color: darken($table-row-even, 80%);
+					}
+					@else {
+						color: lighten($table-row-even, 80%);
+					}
+					background: $table-row-even;
+				}
+			}
+		}
+
+		.table__row {
+			&--dull {
+				background-color: $table-dull !important;
+
+				@if lightness($table-dull) > 50 {
+					color: darken($table-dull, 45%) !important;
+				}
+				@else {
+					color: lighten($table-dull, 45%) !important;
+				}
+			}
+
+			&--emphasize {
+				background-color: $table-emphasize !important;
+
+				@if lightness($table-emphasize) > 50 {
+					color: darken($table-emphasize, 80%) !important;
+				}
+				@else {
+					color: lighten($table-emphasize, 80%) !important;
+				}
+			}
+		}
+
+		&--lined {
+			.table__heading {
+				border: $table-heading-border;
+			}
+	
+			.table__cell {
+				border: $table-cell-border;
+			}
+		}
+
+		// mobile
+		.mobile-table__cell-label {
+			text-transform: uppercase;
+			letter-spacing: .05em;
+			background: $table-header-bg;
+			color: $table-header-color;
+			font-size: .9em;
+			font-weight: 700;
+		}
+	}
+
+	// =================================================
+	// pre defined table colors
+
+	// -----------------------------------------
+ 	// do light theme
+	$color-even:#ffe2e2;
+	$color-odd:#f8b8b8;
+
+	$color-names: "rose" "buttermilk" "lime" "mint" "sky" "aegean" "periwinkle" "taffy";
+
+	@each $label in $color-names {
+
+		&_theme-#{$label} {
+
+			.table__row {
+
+				&:nth-child(odd) {
+					$color: #fff !default;
+
+					@if lightness($color-odd) > 50 {
+						$color: darken($color-odd, 70%);
+					}
+					@else {
+						$color: lighten($color-odd, 70%);
+					}
+					color: desaturate($color, 50%);
+					background: $color-odd;
+				}
+
+				&:nth-child(even) {
+					$color: #fff !default;
+
+					@if lightness($color-even) > 50 {
+						$color: darken($color-even, 70%);
+					}
+					@else {
+						$color: lighten($color-even, 70%);
+					}
+					color: desaturate($color, 50%);
+					background: $color-even;
+				}
+			}
+
+			$caption-bg: desaturate(darken($color-even, 55%), 65%);
+
+			.table__caption { 
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: .1em;
+				background-color: $caption-bg;
+				color: desaturate(lighten($color-even, 40%), 20%);
+			}
+
+			$header-bg: desaturate(lighten($color-even, 4%), 9%);
+
+			.table__header {
+				background-color: $header-bg;
+				color: desaturate(darken($color-odd, 70%), 30%);
+			}	
+
+			&--lined {
+
+				$cell-border-color: desaturate(darken($color-odd, 20%), 50%);
+				$header-border-color: desaturate(darken($header-bg, 25%), 70%);
+
+				.table__caption {
+					border: 1px solid darken($caption-bg, 8%);
+				}
+
+				.table__heading {
+					border-bottom: 1px solid $cell-border-color;
+					border-left: 1px solid $header-border-color;
+					border-right: 1px solid $header-border-color;
+				}
+
+				.table__header:first-child {
+					.table__heading  {
+						border-top: 1px solid $header-border-color;
+					}
+				}
+
+				.table__cell {
+					border: 1px solid $cell-border-color;
+				}
+			}
+
+			// mobile
+			.mobile-table__cell-label {
+				text-transform: uppercase;
+				letter-spacing: .05em;
+				background-color: $header-bg;
+				color: desaturate(darken($color-odd, 70%), 30%);
+				font-size: .9em;
+				font-weight: 700;
+			}
+		}	
+
+		// adjust hue for next color
+		$color-even: adjust-hue($color-even, 45deg);
+		$color-odd: adjust-hue($color-odd, 45deg);	
+
+	}
+
+	// -------------------------------------------------------
+	// do dark theme
+	$color-even:#7b2e2e;
+	$color-odd:#521919;
+
+	$color-names: "garnet" "gold" "moss" "pine" "ocean" "navy" "eggplant" "jam";
+
+	@each $label in $color-names {
+
+		&_theme-#{$label} {
+
+			.table__row {
+
+				&:nth-child(odd) {
+					$color: #fff !default;
+
+					@if lightness($color-odd) > 50 {
+						$color: darken($color-odd, 70%);
+					}
+					@else {
+						$color: lighten($color-odd, 70%);
+					}
+					color: desaturate($color, 50%);
+					background: $color-odd;
+				}
+
+				&:nth-child(even) {
+					$color: #fff !default;
+
+					@if lightness($color-even) > 50 {
+						$color: darken($color-even, 70%);
+					}
+					@else {
+						$color: lighten($color-even, 70%);
+					}
+					color: desaturate($color, 50%);
+					background: $color-even;
+				}
+			}
+
+			$caption-bg: desaturate(lighten($color-even, 30%), 15%);
+
+			.table__caption { 
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: .1em;
+				background-color: $caption-bg;
+				color: desaturate(darken($color-even, 25%), 20%);
+			}
+
+			$header-bg: desaturate(darken($color-even, 20%), 25%);
+
+			.table__header {
+				background-color: $header-bg;
+				color: desaturate(lighten($color-odd, 50%), 50%);
+			}	
+
+			&--lined {
+
+				$cell-border-color: desaturate(lighten($color-even, 20%), 25%);
+				$header-border-color: desaturate(lighten($header-bg, 20%), 10%);
+
+				.table__caption {
+					border: 1px solid darken($caption-bg, 12%);
+				}
+
+				.table__heading {
+					border-bottom: 1px solid $cell-border-color;
+					border-left: 1px solid $header-border-color;
+					border-right: 1px solid $header-border-color;
+				}
+
+				.table__header:first-child {
+					.table__heading  {
+						border-top: 1px solid $header-border-color;
+					}
+				}
+
+				.table__cell {
+					border: 1px solid $cell-border-color;
+				}
+			}
+
+			// mobile
+			.mobile-table__cell-label {
+				text-transform: uppercase;
+				letter-spacing: .05em;
+				background-color: $header-bg;
+				color: desaturate(lighten($color-odd, 50%), 50%);
+				font-size: .9em;
+				font-weight: 700;
+			}
+		}	
+
+		$color-even: adjust-hue($color-even, 45deg);
+		$color-odd: adjust-hue($color-odd, 45deg);	
+	}	
+
+
+	// =========================================
+	// fixed column width recipe
+	&__column-width {
+		$i: 1;
+
+		@for $var from 1 to 20 {
+
+			&-#{$i} {
+				width: rhythm($i);
+			}
+
+			$i: $i +1;
+		}
+	}
+
+	// =========================================
+	// responsive defaults
+	.mobile-table__cell-label {
+		display: none;
+		padding: $gutters/2 $gutters/2;
+	}
+
+	// =========================================
+	// common elements
+
+	&__icon {
+		display: block;
+		margin: 0 auto;
+	}
+}

@@ -1,0 +1,54 @@
+// defaults
+h1, h2, h3, h4, h5{
+	font-family: $font-headings;
+	line-height: 1em;
+	color: lighten($default-text-color, 10%);
+}
+
+p {
+	font-family: $font-body;	
+	font-size: $standard-text-size;
+	line-height: 1.5em;	
+}
+
+.heading-1 { 
+	font-size: ms(4); 
+	font-weight: 700;
+	line-height: 1em;
+	color: #639b8b;
+
+	@include vertical-rhythm-bottom(1);
+}
+
+.heading-2 { 
+	font-size: ms(3); 
+	font-weight: 700;
+	line-height: 1em;
+	color: #3e826e;
+
+	@include vertical-rhythm-bottom(1);
+	@include vertical-rhythm-top(3);
+}
+
+.heading-3 { 
+	font-size: ms(2); 
+	line-height: 1em;
+	text-transform: uppercase; 
+	letter-spacing: .1em;
+	font-weight: 700; 
+
+	@include vertical-rhythm-bottom(1);
+	@include vertical-rhythm-top(2);
+}
+
+.paragraph {
+	&:not(:last-child) {
+		@include vertical-rhythm-bottom(1);
+	}
+}
+
+.breadcrumb {
+	color: #445751;
+	font-size: ms(-1);
+	@include vertical-rhythm-bottom(1);
+}

@@ -1,0 +1,12 @@
+@import '../theme/main';
+@import '../../framework/mixins/bootstrap';
+
+#responsive-table-demo {
+   @media (max-width: 2000px) {
+      @include table--mobile(6rem);
+
+      .button-group {
+         grid-column: span 2;
+      }
+   }
+}

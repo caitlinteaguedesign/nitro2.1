@@ -1,0 +1,105 @@
+html, body {
+	background: $body-background;
+	font-family: $font-body;
+	color: $default-text-color;
+
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	/* flex doesn't work in IE9, IE10, IE11 */
+	@media screen and (min-width:0\0) {
+		display: block;
+		height: 100%;
+	}
+}
+
+.container {
+	width: 100%;
+	background: $content-background;
+	max-width: $max-body-width;
+	margin-right: auto;
+	margin-left: auto;
+ 	position: relative;
+ 	z-index: 0;
+ 	flex-grow: 1;
+}
+
+.main {
+	width: 100%;
+	min-width: 0;
+}
+
+.global-padding {
+	padding: $gutters * 2;
+}
+
+// auto grid by column number
+$i: 1;
+
+@while $i < 7 {
+	.auto-grid-cols-#{$i} {
+		@include auto-grid-cols($i);
+	}
+	$i: $i + 1;
+}
+
+.flex {
+	display: flex;
+
+	&_justify-content-center {
+		justify-content: center;
+	}
+
+	&_justify-content-end {
+		justify-content: end;
+	}
+
+	&_align-items-center {
+		align-items: center;
+	}
+
+	&_align-items-end {
+		align-items: end;
+	}
+}
+
+// vertical spacing classes
+.bottom-spacing-1 {
+	@include vertical-rhythm-bottom(1);
+}
+.bottom-spacing-2 {
+	@include vertical-rhythm-bottom(2);
+}
+.bottom-spacing-3 {
+	@include vertical-rhythm-bottom(3);
+}
+.top-spacing-1 {
+	@include vertical-rhythm-top(1);
+}
+.top-spacing-2 {
+	@include vertical-rhythm-top(2);
+}
+.top-spacing-3 {
+	@include vertical-rhythm-top(3);
+}
+
+// centering content or floating left or right
+.center-content {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.horizontal-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}

@@ -1,0 +1,102 @@
+.supermodal-overlay {
+	position: fixed; 
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	z-index: 1005;
+}
+
+.supermodal-modal {
+	position: absolute;
+	z-index: 1010;
+	width: 100%;
+	top: 9em; /* a default, changes with javascript */
+	left: 50%;
+	transform: translateX(-50%);	
+
+	&_draggable {
+		left: 0;
+		transform: none;
+		cursor: move;
+	}
+}
+
+.supermodal-close {
+	cursor: pointer;
+	position: absolute;
+	border: none;
+	padding: 0;
+	background: none;
+	font-size: 100%;
+}
+
+// themes
+.supermodal {
+
+	&_theme-default {
+		// modal itself
+		padding: $gutters;
+		background-color: #fff;
+		max-width: 31.25em;
+		box-shadow: -2px 2px 5px 0px rgba(0,0,0,0.75);
+
+		// close button
+		.supermodal-close {
+			top:-.6em;
+			right:-.6em;
+			
+			@media screen and (max-width: 560px) {
+				right: .6em;
+				top: -1em;
+			}
+		
+			.icon {
+				color: #eaeaea;	
+				background-color: #666666;
+				border: 2px solid #aaaaaa;
+				padding: .375em;
+				border-radius: 1.9em;
+				height: 1.9em;
+				width: 1.9em;
+				box-shadow: -1px 1px 4px 0px rgba(0,0,0,0.75);
+			}
+		}
+	}
+
+	&_theme-classic {
+		background:rgba(0,0,0,0.2);
+		border-radius: .75em;
+		padding: .75em;
+		max-width: 33em;
+
+		// content background
+		.supermodal-content {
+			border-radius: .3em;
+			background:#dfdfdf;
+			padding: 1.5em;
+		}
+
+		// close button
+		.supermodal-close {
+			top:-.3em;
+			right:-.5em;
+			
+			@media screen and (max-width: 560px) {
+				top: -.5em;
+				right: 1em;
+			}
+		
+			.icon {
+				color: #5b5b5b;	
+				background-color: #dfdfdf;
+				padding: .375em;
+				border-radius: 1.6em;
+				height: 1.75em;
+				width: 1.75em;
+				box-shadow: -1px 1px 4px 0px rgba(36, 36, 36, 0.75);
+			}
+		}
+	}
+}

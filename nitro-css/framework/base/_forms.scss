@@ -1,0 +1,266 @@
+// --------------------------------
+// FORM ELEMENTS
+
+// typical fields and their labels
+.field-group {
+	// display: flex;
+	// gap: .25em; // no safari support as of 9/2020
+	// flex-direction: column;
+
+	.label {
+		margin-bottom: 0.25em;
+	}
+
+	&__description {
+		font-size: $standard-text-size * .9;
+		line-height: 1.5em;
+		margin-bottom: 0.5em;
+	}
+	&__validation {
+		margin-top: 0.125em;
+		text-align: right;
+		font-size: $standard-text-size * .9;
+		line-height: 1.5em;
+		font-style: italic;
+	}
+}
+
+.label {
+	display: block;
+	font-size: $standard-text-size;
+	font-weight: 700;
+	line-height: 1.3em;
+
+	&__helper {
+		font-weight: 400;
+		font-style: italic;
+	}
+	&__tooltip {
+		margin: 0 0.25em;
+	}
+}
+
+.input {
+	width: 100%;
+	min-width: 4em;
+	height: 2em;
+	padding: .25em .375em;
+	border: 1px solid #aaaaaa;
+	border-radius: .25em;
+	background: #ededed;
+	background: linear-gradient(to bottom, #ededed 0%, #ffffff 25%);
+	font-family: $font-body;
+	font-size: $standard-text-size;
+
+	&--calendar-icon {	
+		background: url(#{$IMG_PATH} + "ui-icons/calendar-inputBG.svg"), linear-gradient(to bottom, #ededed 0%, #ffffff 25%);
+		background-position: right center;
+		background-repeat: no-repeat;
+		padding-right: 2em;				
+	}
+}
+
+// value is uneditable and shown for display purposes
+.static-value {
+	min-height: 2em;
+	padding: .25em .375em;
+	background-color: rgba(0,0,0,.125);
+	font-size: $standard-text-size;
+	line-height: 1.375em;
+}
+
+// radio and checkboxes
+.selection-controls {
+
+	// set label
+	&__set-label {
+		margin-bottom: .75em;
+	}
+
+	// layout modifiers
+	&__layout {
+		// defaults to vertical
+		display: grid;
+		grid-gap: 1em;
+		gap: 1em;
+
+		&--horizontal {
+			grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+		}
+	}
+
+	// radio/checkbox + labels
+	&__pairs {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-column-gap: .3em;
+		align-items: baseline;
+	}
+	&__input {
+		margin: 3px 0 0;
+	}
+	&__label {
+		font-size: $standard-text-size;
+		line-height: 1.3em;
+	}
+}
+
+.select {
+	font-family: $font-body;
+	font-size: $standard-text-size;
+	width: 100%;
+	height: 2em;
+	padding: .125em .375em;
+	
+	&__option {
+		&--disable{
+			background-color: #cccccc;
+			color: #909090;
+		}
+		$option-colors: 
+			"red" #f74040,
+			"orange" #f77340,
+			"yellow" #f7c740,
+			"green" #3da921,
+			"blue" #4089f7,
+			"purple" #a050dc,
+		;
+		@each $label, $color in $option-colors{
+			&--#{$label}{
+				background-color: $color;
+				color: darken($color,50%);
+			}
+		}
+	}
+}
+
+.textarea {
+	resize: vertical;
+	font-family: $font-body;
+	font-size: $standard-text-size;
+	width: 100%;
+	padding: .25em .375em;
+	border: 1px solid #aaaaaa;
+	border-radius: .25em;
+	background: linear-gradient(to bottom, #ededed, #ffffff 10%);
+	
+	line-height: 1.5em;
+	min-height: 3.5em;
+
+	$i: 3;
+	$step: 1.5;
+
+	@while $i <= 10 {
+		&_rows-#{$i}{
+			height: ($i * $step + .5) * 1em;
+		}
+		$i: $i +1;
+	}
+}
+
+// --------------------------------
+// FORM LAYOUTS
+
+.form {
+	padding: $gutters;
+
+	// one row form
+	&_layout-flex {
+		display: flex;
+		align-items: center;
+		// gap: $gutters/2; // no safari support as of 9/2020
+
+		> *:not(:last-child) {
+			margin-right: $gutters/2;
+		}
+
+		&__noflex {
+			flex: 0 0 auto;
+		}
+
+		// vertical variation, an alt to the grid version
+		&-column {
+			//display: flex;
+			//flex-direction: column;
+			//gap: $gutters; // no safari support as of 9/2020
+
+			> *:not(:last-child) {
+				margin-bottom: $gutters;
+			}
+
+		}
+	}
+
+	// muili row and columns
+	&_layout-grid {
+		display: grid;
+		grid-auto-columns: 1fr;
+		grid-gap: $gutters;
+		gap: $gutters;
+
+		&__span-1 {
+			grid-column: span 1;
+		}
+		&__span-2 {
+			grid-column: span 2;
+		}
+		&__span-3 {
+			grid-column: span 3;
+		}
+		&__span-4 {
+			grid-column: span 4;
+		}
+	}
+
+	// appearance
+	&_border {
+		border-width: 1px;
+		border-style: solid;
+	}
+
+	&_shadow {
+		box-shadow: 0 0 .5em 0 rgba(0,0,0,.5);
+	}
+
+	&_rounded {
+		border-radius: .375em;
+	}
+
+	&_color-default {
+		border-color: #cccccc;
+		background-color: #eaeaea;
+
+		.form__heading {
+			color: #838383; 
+			
+			&--underline {
+				border-bottom-color: #bfbfbf;
+			}
+		}
+
+		.field-group__description,
+		.field-group__validation {	
+			color: #666666;
+		}
+
+		.label {
+			color: #333333;
+
+			&__helper {
+				color: #81838e;
+			}
+		}
+	}
+
+	&__heading {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: .75em;
+		
+		&--underline {
+			padding-bottom: 1px;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+	}
+}

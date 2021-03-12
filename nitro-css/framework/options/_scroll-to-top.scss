@@ -1,0 +1,22 @@
+.scroll-to-top {
+	display: none;
+	z-index: 10;
+	position: fixed;
+	cursor: pointer;
+
+	&_style-default {
+
+		font-family: $font-body;
+		font-size: 1em;
+		line-height: 1em;
+
+		bottom: $gutters*2;
+		right: $gutters*2;
+		padding: $gutters/2 $gutters*.75;
+		border-radius: $gutters;
+	
+		background-color: $link-color;
+		border: 1px solid darken($link-color, 5%);
+		color: desaturate(lighten($link-color, 50%), 25%);
+	}
+}

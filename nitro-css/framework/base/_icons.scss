@@ -1,0 +1,27 @@
+.icon {
+	width: 1em;
+	height: 1em;
+	display: block;
+
+	&_inline {
+		display: inline-flex;
+		align-items: center;
+		height: ($standard-text-height / 16px ) * 1em;
+		width: 1em;
+		vertical-align: text-bottom;
+	}
+	
+	&_fill {
+		fill: currentColor;
+	}
+
+	&_rotate90{
+		transform: rotate(90deg);
+	}
+	&_rotate180{
+		transform: rotate(180deg);
+	}
+	&_rotate270{
+		transform: rotate(-90deg);
+	}
+}

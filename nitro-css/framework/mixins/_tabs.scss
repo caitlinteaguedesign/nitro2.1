@@ -1,0 +1,19 @@
+@mixin tabs($rad: .5em, $dir: "top")
+{
+	@if $dir == "top" {
+		border-top-left-radius: $rad;
+		border-top-right-radius: $rad;
+	}	
+	@if $dir == "bottom" {
+		border-bottom-left-radius: $rad;
+		border-bottom-right-radius: $rad;
+	}	
+	@if $dir == "left" {
+		border-top-left-radius: $rad;
+		border-bottom-left-radius: $rad;
+	}	
+	@if $dir == "right" {
+		border-top-right-radius: $rad;
+		border-bottom-right-radius: $rad;
+	}				
+}

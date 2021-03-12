@@ -1,0 +1,16 @@
+@mixin joinedTabs($rad: .5em, $n:" first")
+{
+	@if $n == "first" {
+		border-top-left-radius: $rad;
+		.joined-tabs__tab {
+			border-top-left-radius: $rad *.9;
+		}
+	}	
+	@if $n == "last" {
+		border-top-right-radius: $rad;
+
+		.joined-tabs__tab {
+			border-top-right-radius: $rad *.9;
+		}
+	}		
+}
